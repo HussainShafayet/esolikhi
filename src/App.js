@@ -1,9 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import NavBar from "./components/Nav/NavBar";
 
 function App() {
   return (
     <div>
-      <h2 className="text-center">Esho likhi</h2>
+      <NavBar />
     </div>
   );
 }
