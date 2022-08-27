@@ -1,14 +1,15 @@
 import React from 'react';
-import { Nav, NavLink } from 'react-bootstrap'
+import { Nav } from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 
 export default function Account() {
   return (
     <>
       <Nav className="me-auto my-2 my-lg-0">
-        <NavLink className="nav-link" >
-          Login
+        <NavLink className="nav-link" to="signin">
+          SingIn
         </NavLink>
-        <NavLink className="nav-link">
+        <NavLink className="nav-link" to="signup">
           SignUp
         </NavLink>
       </Nav>
