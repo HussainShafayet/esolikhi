@@ -4,7 +4,7 @@ import { Form,Button} from 'react-bootstrap';
 export default function SearchBar() {
   return (
     <>
-      <Form className="d-flex">
+      <Form className="d-flex my-2 my-lg-0">
         <Form.Control
           type="search"
           placeholder="Search"

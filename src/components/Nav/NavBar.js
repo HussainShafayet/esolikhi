@@ -8,21 +8,25 @@ export default function NavBar() {
   return (
     <>
       <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
-        <NavLink className="navbar-brand" to="/">esoLikhi</NavLink>
+        <NavLink className="navbar-brand" to="/">
+          esoLikhi
+        </NavLink>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <NavLink className="nav-link" to="/">Home</NavLink>
-            <NavLink className="nav-link" to="posts">Posts</NavLink>
-            <NavLink className="nav-link" to="about">About</NavLink>
+            <NavLink className="nav-link" to="/">
+              Home
+            </NavLink>
+            <NavLink className="nav-link" to="posts">
+              Posts
+            </NavLink>
+            <NavLink className="nav-link" to="about">
+              About
+            </NavLink>
           </Nav>
           <Nav>
-            <Nav.Link>
-              <SearchBar />
-            </Nav.Link>
-            <Nav.Link>
-                <Account />
-            </Nav.Link>
+            <SearchBar />
+            <Account />
           </Nav>
         </Navbar.Collapse>
       </Navbar>
