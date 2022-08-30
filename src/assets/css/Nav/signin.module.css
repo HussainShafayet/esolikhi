@@ -1,0 +1,71 @@
+.signinForm{
+		max-width: 400px;
+		margin: 0 auto;
+		padding: 30px 0;
+	}
+	.signinForm h2{
+		color: #636363;
+        margin: 0 0 15px;
+		position: relative;
+		text-align: center;
+    }
+	.signinForm h2:before, .signinForm h2:after{
+		content: "";
+		height: 2px;
+		width: 30%;
+		background: #d4d4d4;
+		position: absolute;
+		top: 50%;
+		z-index: 2;
+	}	
+	.signinForm h2:before{
+		left: 0;
+	}
+	.signinForm h2:after{
+		right: 0;
+	}
+    .signinForm .hintText{
+		color: #999;
+		margin-bottom: 30px;
+		text-align: center;
+	}
+    .signinForm .form{
+		color: #999;
+		border-radius: 3px;
+    	margin-bottom: 15px;
+        background: #f2f3f7;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        padding: 30px;
+    }
+	.signinForm .formGroup{
+		margin-bottom: 20px;
+	}
+	.signinForm input[type="checkbox"]{
+		margin-top: 3px;
+	}
+	.signinForm .btn{        
+        font-size: 16px;
+        font-weight: bold;		
+		min-width: 140px;
+        outline: none !important;
+    }
+	.signinForm .row div:first-child{
+		padding-right: 10px;
+	}
+	.signinForm .row div:last-child{
+		padding-left: 10px;
+	}    	
+    .signinForm a{
+		color: #fff;
+		text-decoration: underline;
+	}
+    .signinForm a:hover{
+		text-decoration: none;
+	}
+	.signinForm form a{
+		color: #5cb85c;
+		text-decoration: none;
+	}	
+	.signinForm form a:hover{
+		text-decoration: underline;
+	} 

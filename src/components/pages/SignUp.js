@@ -8,7 +8,7 @@ export default function SignUp() {
     <>
       <div className={signupStyle.signupForm}>
         <Form method="post" className={signupStyle.form}>
-          <h2>Register</h2>
+          <h2>Sign Up</h2>
           <p className={signupStyle.hintText}>
             Create your account. It's free and only takes a minute.
           </p>
@@ -64,11 +64,11 @@ export default function SignUp() {
           </Form.Group>
           <Form.Group className='text-center'>
             <Button type="submit" className="btn btn-success btn-block">
-              Register Now
+              SignUp Now
             </Button>
           </Form.Group>
           <div className="text-center">
-          Already have an account? <Link className='d-inline' to="signin">Sign in</Link>
+          Already have an account? <Link className='d-inline' to="/signin">Sign in</Link>
         </div>
         </Form>
       </div>
