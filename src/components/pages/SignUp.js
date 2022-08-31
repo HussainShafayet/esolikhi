@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import  signupStyle  from '../../assets/css/Nav/signup.module.css'
 import { Link } from "react-router-dom";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function SignUp() {
+  const [loading, setLoading] = useState(false);
+  const [error,setError] = useState(null);
+  const { signup } = useAuth();
   return (
     <>
       <div className={signupStyle.signupForm}>
