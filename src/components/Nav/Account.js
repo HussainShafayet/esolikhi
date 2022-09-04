@@ -1,10 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink,useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 
 export default function Account() {
   const { currentUser,logout } = useAuth();
   const username = currentUser ? currentUser.displayName : "";
+  const navigate = useNavigate();
+
+
+  const handleLogout = async ()=>{
+    await logout();
+    navigate("/signin");
+  }
   return (
     <>
       {/* <Nav className="me-auto my-2 my-lg-0">
@@ -27,7 +34,7 @@ export default function Account() {
       <NavLink className="nav-link" to="user">
         {username}
       </NavLink>
-      <NavLink className="nav-link" to="logout" onClick={logout}>
+      <NavLink className="nav-link" to="/logout" onClick={handleLogout}>
         Logout
       </NavLink>
       </>
