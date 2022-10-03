@@ -15,7 +15,7 @@ export default function SignUp() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState(''); 
   const [check, setCheck] = useState(false);
-  const { signup } = useAuth();
+  // const { signup } = useAuth();
   const navigate = useNavigate();
 
   const handleSignup = (e)=>{
@@ -26,7 +26,7 @@ export default function SignUp() {
         if(check){
           setError('');
           setLoading(true)
-          signup(email, password, username)
+          // signup(email, password, username)
           setLoading(false)
           navigate('/');
           

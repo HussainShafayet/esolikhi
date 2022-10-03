@@ -9,8 +9,22 @@ import { useEffect } from 'react';
 export default function Posts() {
   const [title, setTitle] = useState();
   const [post, setPost] = useState();
+  const [posts,setPosts] = useState([]);
   const { currentUser } = useAuth();
 
+  useEffect((()=>{
+    let url = "http://127.0.0.1:8000/createorgetpost";
+    const requestOptions = {
+      method:"GET",
+      headers:{"Content-Type":"application/json"}
+    }
+    fetch(url,requestOptions)
+    .then((res)=>res.json())
+    .then((response)=>{
+      // console.log('res',response);
+      setPosts(response.data)
+    })
+  }),[post]);
   const handlePost = async (e)=>{
     e.preventDefault();
     let url = "http://127.0.0.1:8000/createorgetpost";
@@ -26,7 +40,7 @@ export default function Posts() {
     fetch(url,
       requestOptions
     )
-      .then((response) => console.log('res',response.json()))
+      .then((res) => res.json())
       .then((data) => console.log('data',data));
   }
   
@@ -55,6 +69,14 @@ export default function Posts() {
           </Button>
         </Form.Group>
       </Form>
+      
+      {
+        posts.map((p,index)=>(
+          <>
+            {p.title} {p.details}
+          </>
+        ))
+      }
     </>
   );
 }
