@@ -13,7 +13,7 @@ export default function Layout({children}) {
       {/* <Footer /> */}
       <NavBar />
       <main>
-        <div className="container">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-md-12 col-sm-12 col-xs-12 bg-primary p-1">
               header
@@ -35,7 +35,7 @@ export default function Layout({children}) {
               {children}
             </div>
             <div className="col-md-3 col-sm-12 col-xs-12 bg-light p-1 height mt-1">
-              6
+              Recent Post.....
             </div>
           </div>
           <div className="row">
