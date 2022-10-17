@@ -31,7 +31,7 @@ export default function Layout({children}) {
                 4
               </div>
             </div>
-            <div className="col-md-6 col-sm-9 col-xs-12 p-1 mid-content bg-success">
+            <div className="col-md-6 col-sm-9 col-xs-12 p-1 mid-content vh-100">
               {children}
             </div>
             <div className="col-md-3 col-sm-12 col-xs-12 bg-light p-1 height mt-1">

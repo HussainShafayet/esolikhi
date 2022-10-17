@@ -73,7 +73,16 @@ export default function Posts() {
       {
         posts.map((p,index)=>(
           <>
-            {p.title} {p.details}
+            <div className='card mb-3' key={index}>
+              <img className='card-img-top' src="..." alt="img" />
+              <div className='card-body'>
+                <h4 className='card-titel'>{p.title}</h4>
+                <p className='card-text'>{p.details}</p>
+                <p className='card=text'>
+                  <small className='text-muted'>Last update 8 mins ago</small>
+                </p>
+              </div>
+            </div>
           </>
         ))
       }
