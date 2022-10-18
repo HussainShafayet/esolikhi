@@ -24,7 +24,7 @@ export default function Posts() {
       // console.log('res',response);
       setPosts(response.data)
     })
-  }),[post]);
+  }),[posts]);
   const handlePost = async (e)=>{
     e.preventDefault();
     let url = "http://127.0.0.1:8000/createorgetpost";
@@ -74,8 +74,8 @@ export default function Posts() {
         posts.map((p,index)=>(
           <>
             <div className='card mb-3' key={index}>
-              <img className='card-img-top' src="..." alt="img" />
-              <div className='card-body'>
+              <img className='card-img-top' src={require("../../assets/images/sampleImg.jpg")} alt="img" />
+              <div className='card-body' >
                 <h4 className='card-titel'>{p.title}</h4>
                 <p className='card-text'>{p.details}</p>
                 <p className='card=text'>
