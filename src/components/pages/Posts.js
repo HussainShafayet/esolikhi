@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
 import { Form,Button } from 'react-bootstrap';
-import { getDatabase, ref, set,push, get } from "firebase/database";
 import { useAuth } from '../../contexts/AuthContext';
 import { useEffect } from 'react';
 
@@ -21,10 +20,10 @@ export default function Posts() {
     fetch(url,requestOptions)
     .then((res)=>res.json())
     .then((response)=>{
-      // console.log('res',response);
+      console.log('res',response.data);
       setPosts(response.data)
     })
-  }),[posts]);
+  }),[]);
   const handlePost = async (e)=>{
     e.preventDefault();
     let url = "http://127.0.0.1:8000/createorgetpost";
@@ -41,7 +40,12 @@ export default function Posts() {
       requestOptions
     )
       .then((res) => res.json())
-      .then((data) => console.log('data',data));
+      .then((data) => {
+       let postData = posts;
+       let postObj = data.data;
+       postObj.id = posts.length+1;
+        setPosts([...posts, postObj]);
+      });
   }
   
   return (
