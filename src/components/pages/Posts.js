@@ -73,6 +73,7 @@ export default function Posts() {
           </Button>
         </Form.Group>
       </Form>
+      {/*  */}
       {
         posts.map((p,index)=>(
           <>
