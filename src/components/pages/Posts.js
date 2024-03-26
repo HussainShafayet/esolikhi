@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Form,Button } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 import { useEffect } from 'react';
+import moment from 'moment';
 
 
 export default function Posts() {
@@ -30,6 +31,7 @@ export default function Posts() {
     let postInfo = {
       title: title,
       details: post,
+      addedDateTime: new Date(),
     };
    const requestOptions = {
      method: "POST",
@@ -80,7 +82,7 @@ export default function Posts() {
                 <h4 className='card-titel'>{p.title}</h4>
                 <p className='card-text'>{p.details}</p>
                 <p className='card=text'>
-                  <small className='text-muted'>Last update 8 mins ago</small> 
+                  <small className='text-muted'>Last update {moment(p.addedDateTime).fromNow()}</small> 
                 </p>
               </div>
             </div>

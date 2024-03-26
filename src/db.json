@@ -1,19 +1,16 @@
 {
   "posts": [
     {
-      "id": "3808",
-      "title": "Love",
-      "details": "new post added"
+      "id": "7a7b",
+      "title": "date",
+      "details": "with datetime",
+      "addedDateTime": "2024-03-26T19:56:05.909Z"
     },
     {
-      "id": "5ce7",
-      "title": "Hudai",
-      "details": "this is testing post"
-    },
-    {
-      "id": "3e0b",
-      "title": "hudai",
-      "details": "done"
+      "id": "18aa",
+      "title": "added time",
+      "details": "this is testing post",
+      "addedDateTime": "2024-03-26T19:59:43.376Z"
     }
   ]
 }
