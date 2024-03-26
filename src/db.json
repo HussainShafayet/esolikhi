@@ -1,8 +1,14 @@
 {
-    "posts" : [
-        {
-            "id": 1,
-            "title": "hello"
-        }
-    ]
+  "posts": [
+    {
+      "id": "3808",
+      "title": "Love",
+      "details": "new post added"
+    },
+    {
+      "id": "5ce7",
+      "title": "Hudai",
+      "details": "this is testing post"
+    }
+  ]
 }

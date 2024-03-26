@@ -12,7 +12,7 @@ export default function Posts() {
   const { currentUser } = useAuth();
 
   useEffect((()=>{
-    let url = "http://127.0.0.1:8000/createorgetpost";
+    let url = "http://localhost:8000/posts";
     const requestOptions = {
       method:"GET",
       headers:{"Content-Type":"application/json"}
@@ -20,13 +20,13 @@ export default function Posts() {
     fetch(url,requestOptions)
     .then((res)=>res.json())
     .then((response)=>{
-      console.log('res',response.data);
-      setPosts(response.data)
+      console.log('res',response);
+      setPosts(response)
     })
   }),[]);
   const handlePost = async (e)=>{
     e.preventDefault();
-    let url = "http://127.0.0.1:8000/createorgetpost";
+    let url = "http://localhost:8000/posts";
     let postInfo = {
       title: title,
       details: post,
@@ -41,10 +41,7 @@ export default function Posts() {
     )
       .then((res) => res.json())
       .then((data) => {
-       let postData = posts;
-       let postObj = data.data;
-       postObj.id = posts.length+1;
-        setPosts([...posts, postObj]);
+        setPosts([...posts, data]);
       });
   }
   
