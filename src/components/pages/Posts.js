@@ -21,14 +21,15 @@ export default function Posts() {
     fetch(url,requestOptions)
     .then((res)=>res.json())
     .then((response)=>{
-      console.log('res',response);
-      setPosts(response)
+      //console.log('res',response);
+      setPosts(response.reverse())
     })
   }),[]);
   const handlePost = async (e)=>{
     e.preventDefault();
     let url = "http://localhost:8000/posts";
     let postInfo = {
+      "id": posts.length + 1,
       title: title,
       details: post,
       addedDateTime: new Date(),
@@ -43,7 +44,7 @@ export default function Posts() {
     )
       .then((res) => res.json())
       .then((data) => {
-        setPosts([...posts, data]);
+        setPosts([data, ...posts,]);
       });
   }
   
