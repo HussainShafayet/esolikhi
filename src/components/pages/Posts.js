@@ -4,15 +4,18 @@ import { Form,Button } from 'react-bootstrap';
 import { useAuth } from '../../contexts/AuthContext';
 import { useEffect } from 'react';
 import moment from 'moment';
+import style from './Posts.module.css';
 
 
 export default function Posts() {
   const [title, setTitle] = useState();
   const [post, setPost] = useState();
   const [posts,setPosts] = useState([]);
+  const [isLoading, setLoading] = useState(false);
   const { currentUser } = useAuth();
 
   useEffect((()=>{
+    setLoading(true);
     let url = "http://localhost:8000/posts";
     const requestOptions = {
       method:"GET",
@@ -22,9 +25,13 @@ export default function Posts() {
     .then((res)=>res.json())
     .then((response)=>{
       //console.log('res',response);
+      setLoading(false)
       setPosts(response.reverse())
+
     })
   }),[]);
+
+
   const handlePost = async (e)=>{
     e.preventDefault();
     let url = "http://localhost:8000/posts";
@@ -50,46 +57,54 @@ export default function Posts() {
   
   return (
     <>
-      <Form action="post" onSubmit={handlePost}>
-        <Form.Group>
-          <Form.Control
-            type="text"
-            name="title"
-            placeholder="Title"
-            onInput={(e) => setTitle(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Control
-            type="text"
-            name="post"
-            placeholder="Write something"
-            onInput={(e) => setPost(e.target.value)}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Button type="submit" className="btn btn-sm">
-            Post
-          </Button>
-        </Form.Group>
-      </Form>
+        {/*<Form action="post" onSubmit={handlePost}>
+          <Form.Group>
+            <Form.Control
+              type="text"
+              name="title"
+              placeholder="Title"
+              onInput={(e) => setTitle(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Form.Control
+              type="text"
+              name="post"
+              placeholder="Write something"
+              onInput={(e) => setPost(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group>
+            <Button type="submit" className="btn btn-sm">
+              Post
+            </Button>
+          </Form.Group>
+        </Form>*/}
       {/*  */}
-      {
-        posts.map((p,index)=>(
-          <>
-            <div className='card mb-3' key={index}>
-              <img className='card-img-top' src={require("../../assets/images/sampleImg.jpg")} alt="img" />
-              <div className='card-body' >
-                <h4 className='card-titel'>{p.title}</h4>
-                <p className='card-text'>{p.details}</p>
-                <p className='card=text'>
-                  <small className='text-muted'>Last update {moment(p.addedDateTime).fromNow()}</small> 
-                </p>
-              </div>
+      <div className={style.postsDiv}>
+        {(isLoading)?
+          <div className={`text-center ${style.postLoaderDiv}`}>
+            <div className="spinner-border" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
-          </>
-        ))
-      }
+          </div>:
+          posts.map((p,index)=>(
+            <>
+              <div className='card mb-3' key={index}>
+                <img className='card-img-top' src={require("../../assets/images/sampleImg.jpg")} alt="img" />
+                <div className='card-body' >
+                  <h4 className='card-titel'>{p.title}</h4>
+                  <p className='card-text'>{p.details}</p>
+                  <p className='card=text'>
+                    <small className='text-muted'>Last update {moment(p.addedDateTime).fromNow()}</small> 
+                  </p>
+                </div>
+              </div>
+            </>
+          ))
+        }
+      </div>
+     
     </>
   );
 }
